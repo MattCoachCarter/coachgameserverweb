@@ -1,0 +1,37 @@
+.server_chat
+{
+  
+}
+
+.server_log
+{
+  
+}
+
+.logchat
+{
+  font-family: "Lucida Console", Monaco, monospace;
+  overflow-y: auto;
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+}
+
+.logline
+{
+  min-height: 25px;
+  line-height: 25px;
+  width: 100%;
+}
+
+.chatline
+{
+  min-height: 25px;
+  line-height: 25px;
+  width: 100%;
+}
+
+.chatname
+{
+  font-weight: 500;
+}

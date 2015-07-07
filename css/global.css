@@ -52,3 +52,15 @@ body
 {
 	padding: 25px;
 }
+
+.default_hide
+{
+	display: none;
+}
+
+.page_title
+{
+	color: white;
+	font-size: 16pt;
+	font-weight: 500;
+}
