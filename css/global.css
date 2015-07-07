@@ -26,7 +26,7 @@ body
 
 .custom-brand
 {
-	background: #000000 url("../images/bloop.jpg") no-repeat right top
+	background: #000000 url("../images/bloop.jpg") no-repeat right top;
 	margin-right: 10px;
 	color: white;
 }
