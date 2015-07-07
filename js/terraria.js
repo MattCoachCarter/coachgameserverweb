@@ -11,6 +11,8 @@ $(function()
   	setUpTabbedContent();
   	getServerStatus();
 	getServerLog();
+	window.logInterval = setInterval(getServerLog, 2000);
+	window.statusInterval = setInterval(getServerLog, 30000);
 });
 
 function setUpTabbedContent()
@@ -101,15 +103,17 @@ function processLogContents(_contents)
   	var logContentElement = $('#server_log');
   	var chatContentWasScrolledToBottom = isElementScrolledToBottom(chatContentElement);
   	var logContentWasScrolledToBottom = isElementScrolledToBottom(logContentElement);
+  	var chatContentWasEmpty = chatContentElement.html() == '';
+  	var logContentWasEmpty = logContentElement.html() == '';
 
   	chatContentElement.append(chatContent);
   	logContentElement.append(logContent);
 
-  	if(chatContentWasScrolledToBottom)
+  	if(chatContentWasScrolledToBottom || chatContentWasEmpty)
   	{
   		scrollElementToBottom(chatContentElement);
   	}
-  	if(logContentWasScrolledToBottom)
+  	if(logContentWasScrolledToBottom || logContentWasEmpty)
   	{
   		scrollElementToBottom(logContentElement);
   	}
