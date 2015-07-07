@@ -1,6 +1,6 @@
 <?php
   	$lines_seen = $_GET['lines_seen'];
-  	$file_path = '/C/Users/Administrator/Desktop/Terraria/terraria_server_stdout.txt';
+  	$file_path = 'C:\Users\Administrator\Desktop\Terraria\terraria_server_stdout.txt';
 
   	//Right now just return some stuff to stub out the file
   	$lines = 0;
