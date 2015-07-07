@@ -6,7 +6,7 @@
   	$lines = 0;
   	$content = '';
 
-  	if(file_exists ( string $file_path ))
+  	if(file_exists($file_path))
   	{
   		$content = file_get_contents($file_path);
   		$content = explode("\n", str_replace("\r", '', $content));
