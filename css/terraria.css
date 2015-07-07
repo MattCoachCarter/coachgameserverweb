@@ -35,3 +35,10 @@
 {
   font-weight: 500;
 }
+
+.tab-pane
+{
+	padding-top: 25px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
