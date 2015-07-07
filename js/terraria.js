@@ -97,6 +97,7 @@ function getServerLog()
 {
   	$.get( 'phpapi/terraria_server_log.php?lines_seen=' + window.serverLogLines, function( data )
   	{
+  		console.log(data);
     	var serverLog = JSON.parse(data);
     	window.serverLogLines = serverLog.lines;
     	processLogContents(serverLog.content);
