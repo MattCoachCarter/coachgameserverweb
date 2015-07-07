@@ -29,5 +29,5 @@
   		
   	}
 
-	echo '{ "lines": '.$lines.', "content": "'.$content.'" }';
+	echo '{ "lines": '.$lines.', "lines_seen_arg": '.$lines_seen.', "content": "'.$content.'" }';
 ?>
