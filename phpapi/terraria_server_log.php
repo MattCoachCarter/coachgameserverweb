@@ -197,7 +197,7 @@ Coach has left.
 Coach has joined.
 <Coach> test
 <Coach> test2
-Coach has left."
+Coach has left.";
 
 echo '{ "lines": 6, "content": '.$content.'; }';
 
