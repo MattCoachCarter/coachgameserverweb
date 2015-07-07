@@ -5,6 +5,7 @@
   	//Right now just return some stuff to stub out the file
   	$lines = 0;
   	$content = '';
+  	$sliced = 'false';
 
   	if(file_exists($file_path))
   	{
@@ -16,6 +17,7 @@
   		{
   			$content = array_slice($content, ($lines_seen - $lines));
   			$content = implode('~*~', $content);
+  			$sliced = 'true';
   		}
   		else
   		{
@@ -23,5 +25,5 @@
   		}  		
   	}
 
-	echo '{ "lines": '.$lines.', "content": "'.$content.'" }';
+	echo '{ "lines": '.$lines.', "sliced": '.$sliced.', "content": "'.$content.'" }';
 ?>
