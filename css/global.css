@@ -8,6 +8,7 @@ body
 	background-color: rgba(255, 255, 255, 0.85);
 	padding: 25px;
 	border-radius: 5px;
+	min-height: 600px;
 }
 
 .navbar
@@ -40,4 +41,14 @@ body
 .custom-brand:hover::after
 {
 	content: "BLOOP";
+}
+
+.nav-tabs
+{
+	border-bottom: 1px solid #B0B0B0!important;
+}
+
+.tab-content div
+{
+	padding: 25px;
 }
