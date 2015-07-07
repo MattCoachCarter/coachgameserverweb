@@ -23,3 +23,15 @@ body
     height: 150px!important;
     padding-top: 0!important;
 }
+
+.custom-brand
+{
+	background: #000000 url("../images/bloop.jpg") no-repeat right top
+	margin-right: 10px;
+	color: white;
+}
+
+.custom-brand:hover::after
+{
+	content: "BLOOP";
+}
