@@ -199,6 +199,6 @@ Coach has joined.
 <Coach> test2
 Coach has left.";
 
-echo '{ "lines": 6, "content": "'.str_replace("\r", '', str_replace("\n", '~*~', $content)).'"; }';
+echo '{ "lines": 6, "content": "'.str_replace("\r", '', str_replace("\n", '~*~', $content)).'" }';
 
 ?>
