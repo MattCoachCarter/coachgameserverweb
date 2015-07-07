@@ -123,7 +123,6 @@ function getServerLog()
 {
   	$.get( 'phpapi/terraria_server_log.php?lines_seen=' + window.serverLogLines, function( data )
   	{
-  		console.log(data);
     	var serverLog = JSON.parse(data);
     	console.log('Before lines: ' + window.serverLogLines);
     	window.serverLogLines = serverLog.lines;
