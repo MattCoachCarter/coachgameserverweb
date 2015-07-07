@@ -5,25 +5,30 @@
   	//Right now just return some stuff to stub out the file
   	$lines = 0;
   	$content = '';
-  	$sliced = 'false';
 
   	if(file_exists($file_path))
   	{
   		$content = file_get_contents($file_path);
-  		$content = explode("\n", str_replace("\r", '', $content));
-  		$lines = count($content);
+  		$content_array = explode("\n", str_replace("\r", '', $content));
+  		$lines = count($content_array);
+
+  		$content = "";
 
   		if($lines > $lines_seen)
   		{
-  			$content = array_slice($content, -($lines - $lines_seen));
-  			$content = implode('~*~', $content);
-  			$sliced = 'true';
+  			for($i = ($line_seen - 1); $i < $lines; $i++)
+  			{
+  				if($content != "")
+  				{
+  					$content += "~*~";
+  				}
+
+				$content += $content_array[$i];
+  			}
+  			//$content = array_slice($content, -($lines - $lines_seen));
+  			//$content = implode('~*~', $content);
   		}
-  		else
-  		{
-  			$content = '';
-  		}  		
   	}
 
-	echo '{ "lines": '.$lines.', "sliced": '.$sliced.', "content": "'.$content.'" }';
+	echo '{ "lines": '.$lines.', "content": "'.$content.'" }';
 ?>
