@@ -15,7 +15,7 @@
 
   		if($lines > $lines_seen)
   		{
-  			$content = array_slice($content, ($lines_seen - $lines));
+  			$content = array_slice($content, -($lines - $lines_seen));
   			$content = implode('~*~', $content);
   			$sliced = 'true';
   		}
