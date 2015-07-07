@@ -77,7 +77,7 @@ function processLogContents(_contents)
   	var logContent = '';
   	var chatContent = '';
 
-  	var contentsSplit = String(_contents).split('\n');
+  	var contentsSplit = String(_contents).split('~*~');
 
   	for(var i = 0; i < contentsSplit.length; i++)
   	{
