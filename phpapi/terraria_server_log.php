@@ -12,12 +12,21 @@
   		$content = explode("\n", str_replace("\r", '', $content));
   		$lines = count($content);
 
-  		if($lines_seen > 0)
+  		if($lines_seen != $lines)
   		{
-  			$content = array_slice($content, (((int) $lines_seen) - $lines));
-  		}
+  			if($lines_seen > 0)
+  			{
+	  			$content = array_slice($content, (((int) $lines_seen) - $lines));
+  			}
 
-  		$content = implode('~*~', $content);
+  			$content = implode('~*~', $content);
+		}
+		else
+		{
+			$content = '';
+		}
+
+  		
   	}
 
 	echo '{ "lines": '.$lines.', "content": "'.$content.'" }';
