@@ -40,7 +40,7 @@ function getServerStatus()
 
 function makeLogLine(_line)
 {
-  	return '<div class="logline">'+ _line +'</div>';
+  	return '<div class="logline">'+ _line.replace('<', '&lt;').replace('>', '&gt;') +'</div>';
 }
 
 function makeChatLine(_line)
@@ -72,7 +72,7 @@ function makeChatLine(_line)
 	    	window.chatColorsIndex++;
 	  	}
 
-  		return '<div class="chatline"><span class="chatname" style="color: '+chatColor+';">&lt;'+chatName+'&gt;'+_line.replace('<'+chatName+'>', '')+'</div>';
+  		return '<div class="chatline"><span class="chatname" style="color: '+chatColor+';">&lt;'+chatName+'&gt;</span>'+_line.replace('<'+chatName+'>', '')+'</div>';
 	}
 	else
 	{
