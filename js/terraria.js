@@ -125,7 +125,9 @@ function getServerLog()
   	{
   		console.log(data);
     	var serverLog = JSON.parse(data);
+    	console.log('Before lines: ' + window.serverLogLines);
     	window.serverLogLines = serverLog.lines;
+    	console.log('After lines: ' + window.serverLogLines);
     	processLogContents(serverLog.content);
   	});
 }
