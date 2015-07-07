@@ -97,8 +97,22 @@ function processLogContents(_contents)
     	logContent += makeLogLine(contentsSplit[i]);
   	}
 	
-  	$('#server_chat').append(chatContent);
-  	$('#server_log').append(logContent);
+  	var chatContentElement = $('#server_chat');
+  	var logContentElement = $('#server_log');
+  	var chatContentWasScrolledToBottom = isElementScrolledToBottom(chatContentElement);
+  	var logContentWasScrolledToBottom = isElementScrolledToBottom(logContentElement);
+
+  	chatContentElement.append(chatContent);
+  	logContentElement.append(logContent);
+
+  	if(chatContentWasScrolledToBottom)
+  	{
+  		scrollElementToBottom(chatContentElement);
+  	}
+  	if(logContentWasScrolledToBottom)
+  	{
+  		scrollElementToBottom(logContentElement);
+  	}
 }
 
 function getServerLog()
@@ -110,4 +124,19 @@ function getServerLog()
     	window.serverLogLines = serverLog.lines;
     	processLogContents(serverLog.content);
   	});
+}
+
+function isElementScrolledToBottom(_element)
+{
+	if (_element[0].scrollHeight - _element.scrollTop() == _element.outerHeight())
+	{
+	  return true;
+	}
+
+	return false;
+}
+
+function scrollElementToBottom(_element)
+{
+	_element.animate({scrollTop: _element[0].scrollHeight});
 }
