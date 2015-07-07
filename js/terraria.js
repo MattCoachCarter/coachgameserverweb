@@ -46,10 +46,12 @@ function makeLogLine(_line)
 function makeChatLine(_line)
 {
   	var chatName = '';
+  	var chatLine = false;
 
   	if(_line.indexOf('<') === 0)
   	{
    	chatName = _line.split('>')[0].replace('<', '');
+   	chatLine = true;
   	}
   	else if(_line.indexOf('has left') !== -1)
   	{
@@ -59,17 +61,23 @@ function makeChatLine(_line)
   	{
     	chatName = _line.replace(/ has joined.*/, '');
   	}
-	
-  	var chatColor = window.chatNameColors[chatName];
-  	if(chatColor === undefined)
+
+  	if(chatLine)
   	{
-    	window.chatNameColors[chatName] = window.chatColors[window.chatColorsIndex];
-    	chatColor = window.chatColors[window.chatColorsIndex];
-    	window.chatColorsIndex++;
-  	}
+  		var chatColor = window.chatNameColors[chatName];
+	  	if(chatColor === undefined)
+	  	{
+	    	window.chatNameColors[chatName] = window.chatColors[window.chatColorsIndex];
+	    	chatColor = window.chatColors[window.chatColorsIndex];
+	    	window.chatColorsIndex++;
+	  	}
 
-
-  	return '<div class="chatline"><span class="chatname" style="color: '+chatColor+';">&lt;'+chatName+'&gt;'+_line.sub('<'+chatName+'>', '')+'</div>';
+  		return '<div class="chatline"><span class="chatname" style="color: '+chatColor+';">&lt;'+chatName+'&gt;'+_line.replace('<'+chatName+'>', '')+'</div>';
+	}
+	else
+	{
+		return '<div class="chatline">'+_line+'</div>';
+	}
 }
 
 function processLogContents(_contents)
