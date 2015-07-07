@@ -1,9 +1,21 @@
 body
 {
-	background: #111111 url("images/black-checkered.jpg") repeat right top;
+	background: #111111 url("../images/black-checkered.jpg") repeat right top;
 }
 
 .content-wrapper
 {
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar
+{
+	border-radius: 0!important;
+}
+
+.navbar-nav a
+{
+    line-height: 110px;
+    height: 110px;
+    padding-top: 0;
 }
