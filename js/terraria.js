@@ -15,7 +15,8 @@ $(function()
 	window.statusInterval = setInterval(getServerLog, 30000);
 
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	  console.log('here');
+	 	scrollElementToBottom($('#server_chat'));
+	  	scrollElementToBottom($('#server_log'));
 	})
 });
 
