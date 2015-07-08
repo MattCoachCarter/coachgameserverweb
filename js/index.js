@@ -2,6 +2,7 @@ $(function()
 {
 	getCPULoadPercentage();
 	getMemoryInfo();
+	getDiskUsage();
 });
 
 function getMemoryInfo()
