@@ -13,6 +13,10 @@ $(function()
 	getServerLog();
 	window.logInterval = setInterval(getServerLog, 2000);
 	window.statusInterval = setInterval(getServerLog, 30000);
+
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	  console.log('here');
+	})
 });
 
 function setUpTabbedContent()
