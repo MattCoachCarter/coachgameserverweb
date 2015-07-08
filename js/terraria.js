@@ -23,7 +23,19 @@ $(function()
 
   //This needs to be moved:
   $('#max_player_count').html(window.maxPlayers);
+
+  //Hover listener for player info
+  $("#player_info").hover(showPlayerList, hidePlayerList);
 });
+
+function showPlayerList()
+{
+  $("#player_list").show();
+}
+function hidePlayerList()
+{
+  $("#player_list").hide();
+}
 
 function setUpTabbedContent()
 {
