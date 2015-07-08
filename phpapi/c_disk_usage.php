@@ -13,7 +13,7 @@
 		}
 
 		$command_output_split = explode(':', $command_output[$i]);
-		$json .= " \"".str_replace(' ', '_', str_replace(' # of ', '', trim(strtolower($command_output_split[0]))))."\": \"".trim($command_output_split[1])."\"";
+		$json .= " \"".str_replace(' ', '_', str_replace(' # of', '', trim(strtolower($command_output_split[0]))))."\": \"".trim($command_output_split[1])."\"";
 	}
 	$json .= "}";
 
