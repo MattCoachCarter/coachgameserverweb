@@ -48,4 +48,10 @@
   display: none;
   height: 100px;
   overflow-y: scroll;
+  margin-top: 5px;
+}
+
+#player_info:hover
+{
+  cursor: pointer;
 }

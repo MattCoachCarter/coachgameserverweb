@@ -25,16 +25,12 @@ $(function()
   $('#max_player_count').html(window.maxPlayers);
 
   //Hover listener for player info
-  $("#player_info").hover(showPlayerList, hidePlayerList);
+  $("#player_info").click(togglePlayerList);
 });
 
-function showPlayerList()
+function togglePlayerList()
 {
-  $("#player_list").show();
-}
-function hidePlayerList()
-{
-  $("#player_list").hide();
+  $("#player_list").toggle();
 }
 
 function setUpTabbedContent()
