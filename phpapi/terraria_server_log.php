@@ -16,7 +16,7 @@
 
   		if($lines > $lines_seen)
   		{
-  			for($i = ($line_seen - 1); $i < $lines; $i++)
+  			for($i = ($lines_seen - 1); $i < $lines; $i++)
   			{
   				if($content != "")
   				{
