@@ -18,6 +18,11 @@
   		{
   			for($i = ($lines_seen - 1); $i < $lines; $i++)
   			{
+  				if($i == -1)
+  				{
+  					$i = 0;
+  				}
+
   				if($content != "")
   				{
   					$content += "~*~";
