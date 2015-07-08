@@ -25,10 +25,10 @@
 
   				if($content != "")
   				{
-  					$content += "~*~";
+  					$content .= "~*~";
   				}
 
-				$content += $content_array[$i];
+				$content .= $content_array[$i];
   			}
   			//$content = array_slice($content, -($lines - $lines_seen));
   			//$content = implode('~*~', $content);
