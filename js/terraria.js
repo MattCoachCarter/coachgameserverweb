@@ -98,6 +98,7 @@ function processLogContents(_contents)
   	{
 	  	for(var i = 0; i < contentsSplit.length; i++)
 	  	{
+        contentsSplit[i] = contentsSplit[i].replace(/^\:\s/, '');
 	    	if(contentsSplit[i].indexOf('<') === 0 || contentsSplit[i].indexOf('has joined') !== -1 || contentsSplit[i].indexOf('has left') !== -1)
 	    	{
 		      chatContent += makeChatLine(contentsSplit[i]);
