@@ -53,7 +53,7 @@ function showMemoryInfo(_json)
 	var free = parseInt(String(data.available_physical_memory).replace(',', '').replace(' MB', ''));
 	var max = parseInt(String(data.total_physical_memory).replace(',', '').replace(' MB', ''));
 	var used = max - free;
-	var percentage = (used/max) * 100;
+	var percentage = ((used/max) * 100).toFixed(2);
 
 	var progress_bar = $("#memory_usage_bar");
 
