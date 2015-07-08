@@ -46,6 +46,6 @@
 .player_list
 {
   display: none;
-  height: 200px;
+  height: 100px;
   overflow-y: scroll;
 }
