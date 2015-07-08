@@ -30,19 +30,19 @@ function setUpTabbedContent()
 
 function getServerStatus()
 {
-  	$.get( 'phpapi/terraria_server_status.php', function( data )
-  	{
-    	var serverStatus = JSON.parse(data);
-    	$('#server_status_' + String(serverStatus.status)).show();
-  	})
-  	.fail(function()
-  	{
-    	$('#server_status_failed').show();
-  	})
-  	.always(function()
-  	{
-    	$('#server_status_calculating').hide();
-  	});
+	$.get( 'phpapi/terraria_server_status.php', function( data )
+	{
+  	var serverStatus = JSON.parse(data);
+  	$('#server_status_' + String(serverStatus.status)).show();
+	})
+	.fail(function()
+	{
+  	$('#server_status_failed').show();
+	})
+	.always(function()
+	{
+  	$('#server_status_calculating').hide();
+	});
 }
 
 function makeLogLine(_line)
