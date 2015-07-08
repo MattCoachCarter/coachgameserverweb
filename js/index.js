@@ -47,7 +47,7 @@ function showCPULoadPercentage(_json)
 	}
 }
 
-function showMemoryInfo()
+function showMemoryInfo(_json)
 {
 	var data = JSON.parse(_json);
 	var free = parseInt(String(data.available_physical_memory).replace(',', '').replace(' MB', ''));
