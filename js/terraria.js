@@ -7,6 +7,8 @@ $(function()
   	window.chatNameColors = {};
   	window.chatColors = [ '#FF0000', '#000099', '#CC6600', '#009933', '#9933FF' ];
   	window.chatColorsIndex = 0;
+    window.playersOnline = [];
+    window.maxPlayers = 8; //This should not be hard coded, and should be exposed through an API call
 
   	setUpTabbedContent();
   	getServerStatus();
@@ -18,6 +20,9 @@ $(function()
 	 	scrollElementToBottom($('#server_chat'));
 	  	scrollElementToBottom($('#server_log'));
 	})
+
+  //This needs to be moved:
+  $('#max_player_count').html(window.maxPlayers);
 });
 
 function setUpTabbedContent()
@@ -99,10 +104,15 @@ function processLogContents(_contents)
 	  	for(var i = 0; i < contentsSplit.length; i++)
 	  	{
         contentsSplit[i] = contentsSplit[i].replace(/^\:\s/, '');
-	    	if(contentsSplit[i].indexOf('<') === 0 || contentsSplit[i].indexOf('has joined') !== -1 || contentsSplit[i].indexOf('has left') !== -1)
+	    	if(contentsSplit[i].indexOf('<') === 0)
 	    	{
 		      chatContent += makeChatLine(contentsSplit[i]);
 	    	}
+        else if(contentsSplit[i].indexOf('has joined') !== -1 || contentsSplit[i].indexOf('has left') !== -1)
+        {
+          updatePlayersOnline(contentsSplit[i]);
+          chatContent += makeChatLine(contentsSplit[i]);
+        }
 		
 	    	logContent += makeLogLine(contentsSplit[i]);
 	  	}
@@ -151,4 +161,25 @@ function isElementScrolledToBottom(_element)
 function scrollElementToBottom(_element)
 {
 	_element.animate({scrollTop: _element[0].scrollHeight});
+}
+
+function updatePlayersOnline(_logmessage)
+{
+  var log_message_split = _logmessage.split(' ');
+  if(log_message_split[2] === 'joined.')
+  {
+    window.playersOnline.push(log_message_split[0]);
+  }
+  else if(log_message_split[2] === 'left.')
+  {
+    var index = window.playersOnline.indexOf(log_message_split[0]);
+
+    while(index !== -1)
+    {
+      window.playersOnline.splice(index, 1);
+      index = window.playersOnline.indexOf(log_message_split[0]);
+    }
+  }
+
+  $('#current_player_count').html(window.playersOnline.length);
 }
