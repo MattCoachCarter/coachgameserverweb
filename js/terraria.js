@@ -89,33 +89,36 @@ function processLogContents(_contents)
 
   	var contentsSplit = String(_contents).split('~*~');
 
-  	for(var i = 0; i < contentsSplit.length; i++)
+  	if(String(_contents).trim() !== '')
   	{
-    	if(contentsSplit[i].indexOf('<') === 0 || contentsSplit[i].indexOf('has joined') !== -1 || contentsSplit[i].indexOf('has left') !== -1)
-    	{
-	      chatContent += makeChatLine(contentsSplit[i]);
-    	}
-	
-    	logContent += makeLogLine(contentsSplit[i]);
-  	}
-	
-  	var chatContentElement = $('#server_chat');
-  	var logContentElement = $('#server_log');
-  	var chatContentWasScrolledToBottom = isElementScrolledToBottom(chatContentElement);
-  	var logContentWasScrolledToBottom = isElementScrolledToBottom(logContentElement);
-  	var chatContentWasEmpty = chatContentElement.html() == '';
-  	var logContentWasEmpty = logContentElement.html() == '';
+	  	for(var i = 0; i < contentsSplit.length; i++)
+	  	{
+	    	if(contentsSplit[i].indexOf('<') === 0 || contentsSplit[i].indexOf('has joined') !== -1 || contentsSplit[i].indexOf('has left') !== -1)
+	    	{
+		      chatContent += makeChatLine(contentsSplit[i]);
+	    	}
+		
+	    	logContent += makeLogLine(contentsSplit[i]);
+	  	}
+		
+	  	var chatContentElement = $('#server_chat');
+	  	var logContentElement = $('#server_log');
+	  	var chatContentWasScrolledToBottom = isElementScrolledToBottom(chatContentElement);
+	  	var logContentWasScrolledToBottom = isElementScrolledToBottom(logContentElement);
+	  	var chatContentWasEmpty = chatContentElement.html() == '';
+	  	var logContentWasEmpty = logContentElement.html() == '';
 
-  	chatContentElement.append(chatContent);
-  	logContentElement.append(logContent);
+	  	chatContentElement.append(chatContent);
+	  	logContentElement.append(logContent);
 
-  	if(chatContentWasScrolledToBottom || chatContentWasEmpty)
-  	{
-  		scrollElementToBottom(chatContentElement);
-  	}
-  	if(logContentWasScrolledToBottom || logContentWasEmpty)
-  	{
-  		scrollElementToBottom(logContentElement);
+	  	if(chatContentWasScrolledToBottom || chatContentWasEmpty)
+	  	{
+	  		scrollElementToBottom(chatContentElement);
+	  	}
+	  	if(logContentWasScrolledToBottom || logContentWasEmpty)
+	  	{
+	  		scrollElementToBottom(logContentElement);
+	  	}
   	}
 }
 
