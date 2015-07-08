@@ -65,8 +65,8 @@ function showDiskUsage(_json)
 	var max = parseInt(data.total_bytes);
 	var used = max - free;
 	var percentage = ((used/max) * 100).toFixed(2);
-	var used_in_gb = (((used/1024)/1024)/1000).toFixed(2);
-	var max_in_gb = (((max/1024)/1024)/1000).toFixed(2);
+	var used_in_gb = (((used/1024)/1024)/1024).toFixed(2);
+	var max_in_gb = (((max/1024)/1024)/1024).toFixed(2);
 
 	var progress_bar = $("#disk_usage_bar");
 
@@ -74,7 +74,7 @@ function showDiskUsage(_json)
 	progress_bar.attr('aria-valuemax', String(max_in_gb));
 
 	progress_bar.attr('style', 'width: '+percentage+'%; min-width: 2em;');
-	progress_bar.html(String(used_in_gb) + '/' + String(max_in_gb) + '%');
+	progress_bar.html(String(used_in_gb) + ' / ' + String(max_in_gb) + 'GB');
 	colorizeProgressBar(percentage, progress_bar);
 }
 
