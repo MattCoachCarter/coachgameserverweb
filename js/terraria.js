@@ -111,6 +111,11 @@ function processLogContents(_contents)
   	{
 	  	for(var i = 0; i < contentsSplit.length; i++)
 	  	{
+        if((contentsSplit[i]).trim() === '')
+        {
+          continue;
+        }
+
         contentsSplit[i] = contentsSplit[i].replace(/^\:\s/, '');
 	    	if(contentsSplit[i].indexOf('<') === 0)
 	    	{
