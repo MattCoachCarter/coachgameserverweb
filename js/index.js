@@ -45,6 +45,9 @@ function showCPULoadPercentage(_json)
 		progress_bar.removeClass('progress-bar-warning');
 		progress_bar.removeClass('progress-bar-danger');
 	}
+
+	progress_bar.removeClass('active');
+	progress_bar.removeClass('progress-bar-striped');
 }
 
 function showMemoryInfo(_json)
@@ -79,4 +82,7 @@ function showMemoryInfo(_json)
 		progress_bar.removeClass('progress-bar-warning');
 		progress_bar.removeClass('progress-bar-danger');
 	}
+
+	progress_bar.removeClass('active');
+	progress_bar.removeClass('progress-bar-striped');
 }
