@@ -194,5 +194,5 @@ function updatePlayersOnline(_logmessage)
   }
 
   $('#current_player_count').html(window.playersOnline.length);
-  $("player_list").html(window.playersOnline.join('<br/>'));
+  $("#player_list").html(window.playersOnline.join('<br/>'));
 }
