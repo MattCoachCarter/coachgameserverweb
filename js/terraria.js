@@ -8,7 +8,7 @@ $(function()
   	window.chatColors = [ '#FF0000', '#000099', '#CC6600', '#009933', '#9933FF' ];
   	window.chatColorsIndex = 0;
     window.playersOnline = [];
-    window.maxPlayers = 8; //This should not be hard coded, and should be exposed through an API call
+    window.maxPlayers = 8; // TODO: This should not be hard coded, and should be exposed through an API call
 
   	setUpTabbedContent();
   	getServerStatus();
@@ -21,11 +21,14 @@ $(function()
 	  	scrollElementToBottom($('#server_log'));
 	})
 
-  //This needs to be moved:
+  // TODO: This needs to be moved:
   $('#max_player_count').html(window.maxPlayers);
 
   //Hover listener for player info
   $("#player_info").click(togglePlayerList);
+
+  //Default player count is "?"
+  $('#current_player_count').html("?");
 });
 
 function togglePlayerList()
