@@ -9,7 +9,7 @@
   	if(file_exists($file_path))
   	{
   		$content = file_get_contents($file_path);
-  		$content_array = explode("\n", str_replace("\r", '', $content));
+  		$content_array = explode("\n", str_replace('"', '\"' ,str_replace("\r", '', $content)));
   		$lines = count($content_array);
 
   		$content = "";
